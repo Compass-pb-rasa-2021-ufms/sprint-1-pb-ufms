@@ -1,22 +1,19 @@
+const cors = require('cors');
 const express = require('express');
 const app = express();
-/*
-app.get("/", (req, resp) => {
-    resp.send("http://api.ipstack.com/134.201.250.15?access_key=6c7b40831c6302fc4bca244951108a2d");
+const aiox = require('axios');
+const { default: axios } = require('axios');
+
+app.use(cors());
+
+app.listen("8080");
+
+app.get("/", async(req, res) => {
+    try{
+        const {data} = await axios('http://api.ipapi.com/api/161.185.160.93?access_key=dd9c3b1a6c810b6c9ddb77c1d92a71d8');
+        console.log(req);
+        return res.json(data);
+    }catch(error){
+        console.error(error);
+    }
 });
-
-app.listen(8080, () => {
-    return 
-});
-
-function receiveData(){
-    console.log("teste");
-    const input = document.querySelector(".form-control");
-    const ip = "134.201.250.155";
-    const key = "?access_key=6c7b40831c6302fc4bca244951108a2d"
-
-    execute.get("http://api.ipstack.com/${ip}${key}", (req, resp) => {
-        console.log("teste");
-    });
-};
-*/
