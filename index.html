@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olá</title>
+    <title>Cartas</title>
 </head>
 <body>
-    <p>Hello World</p>
+    <div class="container">
+        <input type="button" value="Dark" class="btn">
+        <input type="button" value="Earth" class="btn">
+        <input type="button" value="Fire" class="btn">
+        <input type="button" value="Light" class="btn">
+        <input type="button" value="Water" class="btn">
+        <input type="button" value="Wind" class="btn">
+    </div>
+    <div id="carta">
+        ignora
+    </div>
+    <script>
+        const buttons = document.querySelectorAll('.btn');
+        buttons.forEach(function(currentBtn){
+        currentBtn.addEventListener('click', ()=>{
+            const value = currentBtn.value;
+            fetch(`https://db.ygoprodeck.com/api/v7/cardinfo.php?attribute=${value}`)
+            .then(res => res.json())
+            .then(data =>{document.querySelector('#carta').innerHTML = `<img src=${data.data[Math.floor(Math.random() * 100)].card_images[0].image_url}>`;})
+        })});
+    </script>
 </body>
 </html>
