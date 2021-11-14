@@ -1,4 +1,4 @@
- .u-section-1 {
+.u-section-1 {
   background-image: none;
 }
 
@@ -7,7 +7,7 @@
 }
 
 .u-section-1 .u-text-1 {
-  text-shadow: 2px 2px 8px rgba(66,84,101,0.4);
+  text-shadow: 2px 2px 8px rgba(66, 84, 101, 0.4);
   font-size: 3.75rem;
   letter-spacing: 2px;
   background-image: none;
@@ -26,12 +26,12 @@
 
 .u-section-1 .u-btn-1 {
   letter-spacing: 3px;
-  text-shadow: 0 0 0 rgba(0,0,0,0);
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0);
   font-size: 1.125rem;
   text-transform: uppercase;
   font-weight: 700;
   font-family: "Chakra Petch";
-  box-shadow: 0 0 7px 0 rgba(71,138,201,0.7);
+  box-shadow: 0 0 7px 0 rgba(71, 138, 201, 0.7);
   margin-bottom: 0;
   background-image: none;
 }
@@ -84,4 +84,16 @@
   .u-section-1 .u-form-1 {
     width: 340px;
   }
+}
+
+.resultado {
+  color: #c9055c;
+  background-color: white;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  font-family: "Chakra Petch";
+  font-weight: 700;
+  text-transform: none;
+  width: 662px;
+  margin: 155px auto 0;
 }
