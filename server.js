@@ -12,6 +12,8 @@ app.set('view engine', 'html');
 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
+// expondo a pasta publico que serve os arquivos staticos, como css/js/image
+app.use(express.static(__dirname + '/public'));
 
 // POST number
 app.post('/example', (req, res) => {
@@ -40,11 +42,18 @@ app.get('/example', (req, res) => {
 	});
 
 // GET number
+// renderiza a pagina nova
 app.get('/entediado', (req, res) => {
-	//   res.render(__dirname + '/index', { message: 'test' })
 	res.render(path.join(__dirname+'/bored.html'));
 
 	});
+
+// GET number
+app.post('/entediado', (req, res) => {
+	console.log("response", req.body)
+
+});
+
 
 
 app.get('/', (req, res) => {
@@ -89,7 +98,6 @@ async function requestNumberAPI(number){
 	} catch (error) {
 		// console.log(ePromise.resolverror.response.body);
         return (error)
-		//=> 'Internal server error ...'
 	}
 };
 
@@ -175,5 +183,3 @@ translategot('this is a test')
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-// quando inicia um projeto tem que rodar npm init
-// https://stackoverflow.com/questions/50895493/solving-the-npm-warn-saveerror-enoent-no-such-file-or-directory-open-users

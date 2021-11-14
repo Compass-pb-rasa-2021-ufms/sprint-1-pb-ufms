@@ -1,25 +1,60 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
 <body>
 
-<h2>Selecione um tipo de atividade</h2>
+  <h2>Selecione um tipo de atividade</h2>
+  <form action="/entediado" method="post">
+    <!-- Tipo de um atividade -->
+    <label for="tipos">Escolha um tipo de atividade:</label>
+    <select id="tipos" name="tipos">
+      <option value="education" >Educacional</option>
+      <option value="social" selected>Social</option>
+      <option value="diy" >Faça você mesmo</option>
+      <option value="charity" >Caridade</option>
+      <option value="cooking" >Cozinha</option>
+      <option value="relaxation" >Relaxar</option>
+      <option value="music" >Musica</option>
+      <option value="recreational" >Recreativo</option>
+      <option value="busywork" >busywork</option>
+    </select>
 
-<form action="/entediado">
-  <label for="tipos">Escolha um tipo:</label>
-  <select id="tipos" name="tipos">
-    <option value="education" >Educacional</option>
-    <option value="social" selected>Social</option>
-    <option value="diy" >Faça você mesmo</option>
-    <option value="charity" >Caridade</option>
-    <option value="cooking" >Cozinha</option>
-    <option value="relaxation" >Relaxar</option>
-    <option value="music" >Musica</option>
-    <option value="recreational" >Recreativo</option>
-    <option value="busywork" >busywork</option>
-  </select>
-  <input type="submit">
-</form>
 
+    <!-- participants
+    The number of people that this activity could involve
+    [0, n] -->
+    <br><br>
+    <label for="participantesNum">Numero de participantes envolvidos pela atividade</label>
+    <input id="participantesNum" name="participants" type="number" value="0">
+    <br>
+
+    <!-- price
+    A factor describing the cost of the event with zero being free
+    [0, 1] -->
+    <br>
+    <label for="precoMin">Custo da atividade</label>
+    <input id="precoMin" name="minprice" type="number" placeholder="Min Price">
+    <span> <= </span>
+    <input id="precoMax" name="maxprice" type="number" value="42">
+    <br>
+
+    <details>
+      <summary>Alguns detalhes</summary>
+      <p>Mais informações sobre os detalhes.</p>
+    </details>
+    
+
+    <!-- accessibility   
+    A factor describing how possible an event is to do with zero being the most accessible
+    [0.0, 1.0] -->
+    <label for="acessMin">Nível de acessibilidade:</label>
+    <input id="acessMin" name="minaccessibility" type="number" step="5" min="0" max="100" >
+    <span> <= </span>
+    <input id="acessMax" name="maxaccessibility" type="number" step="5" min="0" max="100" value="100">
+    <br>
+    <input type="submit" value=Submit>
+  </form>
 </body>
 </html>
-
