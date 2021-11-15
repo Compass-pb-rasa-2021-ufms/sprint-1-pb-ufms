@@ -2,7 +2,7 @@
 Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Rasa.
 
 ### :green_circle: Acesso ao App
-    site do heroku
+    https://vast-sierra-94207.herokuapp.com/
     
 ### :gear: Configuração e inicalização local
 
@@ -34,13 +34,16 @@ Acesso em localhost:'porta'
 
 $ heroku login
 $ heroku container:login
-$ heroku create  <Esse comando cria um app no site com um nome aleatório, no terminal aparece algo assim: ⬢ blooming-mesa-97378>
+$ heroku create  (Esse comando cria um app no site com um nome aleatório, no terminal aparece algo assim: ⬢ vast-sierra-94207)
 $ docker build -t registry.heroku.com/'nome-do-app-criado'/web .
 $ docker push registry.heroku.com/'nome-do-app-criado'/web
 $ heroku container:release web -a 'nome-do-app-criado'
 $ heroku open -a 'nome-do-app-criado'
 ```
-### :books: Dependências e modules
+### :books: Documentações das tecnologias e dependências
+- [Nodejs](https://nodejs.org/en/docs/)
+- [Docker](https://docs.docker.com/)
+- [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 - [cross-fetch](https://www.npmjs.com/package/cross-fetch)
 - [nodemon](https://www.npmjs.com/package/nodemon)
 - [http](https://nodejs.org/api/http.html#http)
