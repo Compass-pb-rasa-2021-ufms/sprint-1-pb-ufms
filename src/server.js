@@ -21,17 +21,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '..', '/public')));
 
 
-// Rota que redireciona para a página de curiosidade dos numeros.
-
-// Ao preenhcer o formulário com o número desejado realizamos
-// uma requisição a API de curiosidade de numeros e em seguida
-// uma requisição para a API de tradução, a qual vai traduzir
-// a resposta anterior para o portugues.
+/* 
+ * Essa rota redireciona para a página de curiosidade dos numeros e, assim que o usuário
+ * preencher o campo com o número desejado é realizada uma requisição a API de curiosidade
+ * de numeros e, em seguida, sua resposta é enviada a uma API de tradução, a qual vai traduzir
+ * a resposta da API anterior para o portugues.
+*/ 
 app.get('/numero', (req, res) => {
 	if (req.query.numero){
 		numbersAPI.requestNumbersAPI(req.query.numero).then(function(data) { 
 			translateAPI.requestTranslateAPI(data).then(function(translatedText){
-				// res.status(200).render(path.join(__dirname, '..', '/public/views/number.html'), {
 				res.render(path.join(__dirname, '..', '/public/views/number.html'), {
 					textoEN: data,
 					textoPT: translatedText
@@ -46,16 +45,17 @@ app.get('/numero', (req, res) => {
 	}
 });
 
-// GET
-// renderiza a pagina que contém o formulário
+
+// Essa rota direciona o usuário para a pagina que contém o formulário para buscar atividades
 app.get('/entediado', (req, res) => {
 	res.render(path.join(__dirname, '..', '/public/views/activityform.html'));
 });
 
-// Realiza um request a API de atividades e depois um
-// request a API de traduções.
-// Por fim, retorna a página contendo a atividade em questão
-// TODO, fazer um request a uma atividade aleatoria, sem passar parâmetros
+/*
+ * Realiza uma requisição a API de atividades e depois realiza uma requisição
+ * para a API de traduções com a reposta obtida pela API de atividades.
+ * Por fim, retorna a página contendo a atividade em questão, bem como sua tradução.
+*/
 app.get('/atividade', (req, res) => {
 	resultadoTratado = utils.treatsBoredApiInput(req.query)
 	boredAPI.requestBoredAPI(resultadoTratado).then(function(data) {
@@ -77,9 +77,7 @@ app.get('/atividade', (req, res) => {
 	})
 });
 
-// rota raiz
 app.get('/', (req, res) => {
-	// sobe um diretorio
 	res.sendFile(path.join(__dirname, '..', 'public/views/index.html'));
 });
 
