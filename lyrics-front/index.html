@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen" />
+    <link
+      id="u-page-google-font"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Chakra+Petch:700"
+    />
+    <title>Simple Lyrics Search</title>
+  </head>
+  <body>
+    <section class="main">
+      <h1>Simple Lyrics Search</h1>
+      <div class="form">
+        <input id="artist-name" type="text" placeholder="Artist's name" />
+        <input id="song-name" type="text" placeholder="Song's name" />
+        <button id="search-button">SEARCH</button>
+      </div>
+      <div id="response-box">
+        <p id="result-p">The easiest way to get your lyric.</p>
+      </div>
+    </section>
+    <footer>
+      <p>
+        Simply enter the song's artist and name and voilà.
+        <br />
+        This page is powered by Lyrics.ovh, an Oracle Apiary API .
+      </p>
+      <a
+        href="https://lyricsovh.docs.apiary.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="./images/imageedit_4_4369027381.png" alt="Apiary" />
+      </a>
+    </footer>
+  </body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script>
+  const getLyric = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    var artist = document.getElementById("artist-name").value;
+    var song = document.getElementById("song-name").value;
+    var resultBox = document.getElementById("result-box");
+    var resultP = document.getElementById("result-p");
+    axios
+      .get(`http://localhost:3000/search/${artist}/${song}`)
+      .then((response) => {
+        console.log(response);
+        if (!response.data.error) {
+          var lyricText = response.data;
+          var splitLetterText = lyricText.split(" ");
+          splitText = lyricText.split("\n");
+          if (splitLetterText[0] === "Paroles") {
+            splitText.shift();
+          }
+          lyricText = splitText.join("<br />");
+          resultP.innerHTML = lyricText;
+        } else {
+          resultP.innerHTML =
+            "No results were found.<br /> (The database is mostly composed by english songs).";
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const searchButton = document.getElementById("search-button");
+  searchButton.addEventListener("click", getLyric);
+</script>
