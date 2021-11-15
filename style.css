@@ -1,12 +1,14 @@
 body {
-	background-image: linear-gradient( 180deg,  rgb(93, 190, 235) 23.8%, rgb(55, 180, 132) 92% );
+	background-image: linear-gradient( 180deg,  rgb(147, 213, 243) 23.8%, rgb(31, 115, 121) 92% );
 	font-family: 'Open Sans', sans-serif;
-	display: flex;
+	display:flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	height: 100vh;
-	margin: 0;
+}
+html, body {
+    margin: 0;
+	height: 100%;
 }
 .container-result{
 	display: flex;
@@ -14,13 +16,13 @@ body {
 	justify-content: center;
 }
 .result {
-	background-color: rgb(188, 253, 180);
+	background-color: rgb(222, 238, 224);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: 10px;
-	height: 600px;
-	width: 400px;
+	height: 450px;
+	width: 300px;
 }
 .result img {
 	object-fit: fill;
@@ -28,23 +30,26 @@ body {
 	width: 100%;
 }
 .buttons {
+	color: rgb(95, 8, 83);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 .btn {
+	border: 1px solid rgb(95, 8, 83);
     align-content: center;
-	background-color: rgb(90, 31, 85);
-	border: 0;
+	background-color: rgb(243, 245, 143);
 	border-radius: 4px;
-	font-size: 15px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: 22px;
 	padding: 10px;
 	margin: 10px;
 	width: 100px;
 }
 .title{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 40px;
+    font-family: cursive;
+	font-variant: small-caps;
+    font-size: 70px;
     display: flex;
 	align-items: center;
 	justify-content: center;

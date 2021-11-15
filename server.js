@@ -2,25 +2,25 @@
 const http = require('http');
 const fs = require('fs');
 
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
-fs.readFile('index.html', function(error,data) {
+fs.readFile('./index.html', function(error,data) {
     if(error)
         throw error;
     htmlFile = data;
 })
-fs.readFile('style.css', function(error,data) {
+fs.readFile('./style.css', function(error,data) {
     if(error)
         throw error;
     cssFile = data;
 })
-fs.readFile('script.js', function(error,data) {
+fs.readFile('./script.js', function(error,data) {
     if(error)
         throw error;
     jsFile = data;
 })
 // problema: eu tava mandando um request e fechando ele, por isso não tava pegando a referencia lá no html
-// garantir que eu mande varios requests
+// garantir que eu mande os requests
 var server = http.createServer(function (req,res){
     switch(req.url){
         case '/style.css' :
@@ -38,26 +38,9 @@ var server = http.createServer(function (req,res){
     res.end();
 })        
 
-
-server.listen(PORT,function(error) {
+server.listen(port,function(error) {
     if(error)
-        console.log('algo deu errado', error);
+        console.log('Algo deu errado', error);
     else
-        console.log('porta: ',PORT);
+        console.log('To funcionando! acesso localhost:3000! Com docker deve ser outra porta!');
 });
-
-
-// const server = http.createServer(function(req,res){
-//     res.writeHead(200,{'Content-Type':'text/html'})
-//     fs.readFile('index.html', function(error, data) {
-//         if(error){
-//             res.writeHead(404);
-//             res.write('Errei, sem arquivo');
-//         }else{
-//             res.write(data);
-//         }
-//         res.end();
-//     })
-// });
-
-
