@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <a href="javascript:history.back()">Voltar</a>
+  <a href="/">Home</a>
+
+
+  <% if(locals.atividade){ %>
+    <p>atividade : <%= atividade %> (<%= atividadeTraduziza %>)</p>
+    <p>tipo: <%= tipo %> (<%= tipoTraduzido %>)</p>
+    <p>participantes: <%= participantes %></p>
+    <p>preco: <%= preco %></p>
+    <p>link: <%= link %></p>
+    <p>acessibilidade: <%= acessibilidade %></p>
+    <% } else if (locals.erro){ %>  
+     <h1>Ocorreu um erro inesperado, tente novamente.</h1>
+   <% } %>
+
+</body>
+</html>

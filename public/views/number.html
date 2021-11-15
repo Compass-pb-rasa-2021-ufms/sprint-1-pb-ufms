@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <a href="/">Home</a>
+        <p>Insira um número</p>
+        <form action="/numero" method="get">
+            Numero: <input type="number" name="numero"><br>
+            <br/>
+           <button type="submit">Enviar</button>   
+        </form>
+        <% if(locals.textoEN){ %>
+        <h1><%= textoEN %></h1>
+        <h1><%= textoPT %></h1>
+        <% } else if(locals.vazio) { %>  
+         <h1> <%= vazio %></h1>
+       <% } %>
+    </body>
+</html>

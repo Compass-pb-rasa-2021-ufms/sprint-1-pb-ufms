@@ -4,9 +4,9 @@
   <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
+  <a href="/">Home</a>
   <h2>Selecione um tipo de atividade</h2>
-  <form action="/entediado" method="post">
+  <form action="/atividade" method="get">
     <!-- Tipo de um atividade -->
     <label for="tipos">Escolha um tipo de atividade:</label>
     <select id="tipos" name="tipos">
@@ -27,7 +27,7 @@
     [0, n] -->
     <br><br>
     <label for="participantesNum">Numero de participantes envolvidos pela atividade</label>
-    <input id="participantesNum" name="participants" type="number" value="0">
+    <input id="participantesNum" name="participants" type="number" min='1' value="1">
     <br>
 
     <!-- price
@@ -38,12 +38,11 @@
     <input id="precoMin" name="minprice" type="number" placeholder="Min Price">
     <span> <= </span>
     <input id="precoMax" name="maxprice" type="number" value="42">
-    <br>
-
     <details>
-      <summary>Alguns detalhes</summary>
       <p>Mais informações sobre os detalhes.</p>
     </details>
+
+
     
 
     <!-- accessibility   
@@ -56,5 +55,18 @@
     <br>
     <input type="submit" value=Submit>
   </form>
+
+
+  <% if(locals.atividade){ %>
+    <p>atividade : <%= atividade %> (<%= atividadeTraduziza %>)</p>
+    <p>tipo: <%= tipo %> (<%= tipoTraduzido %>)</p>
+    <p>participantes: <%= participantes %></p>
+    <p>preco: <%= preco %></p>
+    <p>link: <%= link %></p>
+    <p>acessibilidade: <%= acessibilidade %></p>
+    <% } else if (locals.erro){ %>  
+     <h1>Ocorreu um erro inesperado, tente novamente.</h1>
+   <% } %>
+
 </body>
 </html>
