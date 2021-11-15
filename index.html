@@ -15,56 +15,42 @@
                 <option value="f">
                     Fahrenheit
                 </option>
-                <option value=<"m">
+                <option value="m">
                     Celsius
                 </option>
             </select>
-            <button class ="btn"
-                onclick="getWeather()">Buscar
+            <button 
+                class ="btn"
+                id="buscar"
+            >
+                Buscar
             </button>
-            <img id="image" style="border-radius: 5px;"/>
+            
     </div>
-    
     <div class="weather_card" id="weather_card">
         <div class="container">
             
                     <div class="city_input">
-                        <h6 class="city_inputText">Localização</h6>
-                </div>
+                        <h6 class="city_inputText" id = "city_inputText"></h6>
+                    </div>
 
             <div class="weather_inputs">
-                <span class="temperature_input">Temperatura</span>
-                <h6 class="weather_situation" id="weather_situation">Descrição</h6>
+                <span class="temperature_input" id="temperature_input"></span>
+                <h6 class="weather_situation" id="weather_situation"></h6>
             </div>
 
             <div class="weather_stats">
-                <div class="stats_container" style="font-size: 1rem;">
-                    <div><i class="feels_like"></i> <span class="ms-1">Sensação Terminca</span></div>
-                    <div><i class="wind_speed"></i> <span class="ms-1">Velocidade do Vento</span></div>
-                    <div><i class="humidity"></i> <span class="ms-1">Umidade</span></div>
-                   
+                <div class="stats_container"">
+                    <div><i class="feels_like" id="feels_like"></i> <span class="ms-1"></span></div>
+                    <div><i class="wind_speed" id="wind_speed"></i> <span class="ms-1"></span></div>
+                    <div><i class="humidity" id="humidity"></i> <span class="ms-1"></span></div>               
+                </div>
+                <div class="image_card">
+                    <img class="image" id="image" style="border-radius: 5px;"/> 
                 </div>
             </div>
         </div>
     </div>
 </body>
-    <script>
-
-        function getWeather(){
-            var location = document.getElementById("search").value;
-            var measure = document.getElementById("units").value;
-        fetch ("http://api.weatherstack.com/current?access_key=7dff51ccb3e6c3d5aefd755fbcc78f4d&query="+location+"&city"+measure)
-        .then(res => res.json())
-        .then(response => {document.getElementById("image").src=response.current.weather_icons[0];
-        document.getElementById("weather_card").innerHTML="<h1>"
-        +response.current.weather_descriptions[0]
-                +"<h1>Temperatura: "+response.current.temperature+"°"
-                +"<h1>Vento: "+response.current.wind_speed+"km/h"
-                +"<h1>Sensação: "+response.current.feelslike+"°C"
-                +"<h1>Umidade: "+response.current.humidity+"%";
-            }
-        );
-    }
-</script>
+<script src="./getWeather.js"></script>
 </html>
-
