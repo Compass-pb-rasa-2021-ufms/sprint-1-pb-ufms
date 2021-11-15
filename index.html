@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <link rel ="stylesheet" href="assets/styles.css">
+    <title> Compass UOL - Weather </title>
+</head>
+
+<body>
+    <div>
+        <h1 class="title">Weather Tracker</h1>
+    </div>
+
+    <div id="SearchLoc">
+            <input class="input_text"placeholder="Busque uma cidade..." id="search"/>
+            <select id="units" class="options_input">
+                <option value="f">
+                    Fahrenheit
+                </option>
+                <option value=<"m">
+                    Celcius
+                </option>
+            </select>
+            <button class ="btn"
+                onclick="getWeather()">Buscar
+            </button>
+            <img id="image" style="border-radius: 5px;"/>
+    </div>
+
+    <div class="weather_card" id="weather_card">
+        <div class="container">
+            <div>
+                <div class="card-body">
+                    <div class="city_input">
+                        <h6 class="city_inputText"></h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weather_inputs">
+                <span class="temperature_input"></span>
+                <h6 class="weather_situation" id="weather_situation"></h6>
+            </div>
+
+            <div class="weather_stats">
+                <div class="stats_container" style="font-size: 1rem;">
+                    <div><i class="feels_like"></i> <span class="ms-1"></span></div>
+                    <div><i class="wind_speed"></i> <span class="ms-1"></span></div>
+                    <div><i class="humidity"></i> <span class="ms-1"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+    <script>
+        function getWeather(){
+            var location = document.getElementById("search").value;
+            var measure = document.getElementById("units").value;
+        fetch ("http://api.weatherstack.com/current?access_key=7dff51ccb3e6c3d5aefd755fbcc78f4d&query="+location+"&city"+measure)
+        .then(a => a.json())
+        .then(response => {document.getElementById("image").src=response.current.weather_icons[0];
+        document.getElementById("weather_card").innerHTML="<h1>"+response.current.weather_descriptions[0]
+                +"</h1>temperature:"+response.current.temperature
+                +"<br>wind_speed:"+response.current.wind_speed
+                +"<br>feels_like:"+response.current.feelslike
+                +"<br>humidity:"+response.current.humidity
+                +"<br>Cloud cover:"+response.current.cloudcover;
+            }
+            );
+        }
+    </script>
+</html>
+
+
