@@ -16,7 +16,7 @@
                     Fahrenheit
                 </option>
                 <option value=<"m">
-                    Celcius
+                    Celsius
                 </option>
             </select>
             <button class ="btn"
@@ -25,7 +25,6 @@
             <img id="image" style="border-radius: 5px;"/>
     </div>
     
-
     <div class="weather_card" id="weather_card">
         <div class="container">
             
@@ -50,19 +49,19 @@
     </div>
 </body>
     <script>
+
         function getWeather(){
             var location = document.getElementById("search").value;
             var measure = document.getElementById("units").value;
         fetch ("http://api.weatherstack.com/current?access_key=7dff51ccb3e6c3d5aefd755fbcc78f4d&query="+location+"&city"+measure)
         .then(res => res.json())
         .then(response => {document.getElementById("image").src=response.current.weather_icons[0];
-        document.getElementById("weather_card").innerHTML="<h1>weather_situation: "
+        document.getElementById("weather_card").innerHTML="<h1>"
         +response.current.weather_descriptions[0]
-                +"<h1>temperature: "+response.current.temperature+"°"
-                +"<h1>wind_speed: "+response.current.wind_speed+"km/h"
-                +"<h1>feels_like: "+response.current.feelslike+"°"
-                +"<h1>humidity: "+response.current.humidity+"%"
-                +"<h1>Cloud cover:"+response.current.cloudcover+"%";
+                +"<h1>Temperatura: "+response.current.temperature+"°"
+                +"<h1>Vento: "+response.current.wind_speed+"km/h"
+                +"<h1>Sensação: "+response.current.feelslike+"°C"
+                +"<h1>Umidade: "+response.current.humidity+"%";
             }
         );
     }

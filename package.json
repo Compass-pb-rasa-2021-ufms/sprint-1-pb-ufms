@@ -2,7 +2,7 @@
   "name": "sprint-1-pb-ufms",
   "version": "1.0.0",
   "description": "Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Rasa.",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "lite-server"
@@ -20,8 +20,5 @@
   "homepage": "https://github.com/Compass-pb-rasa-2021-ufms/sprint-1-pb-ufms#readme",
   "devDependencies": {
     "lite-server": "^2.6.1"
-  },
-  "dependencies": {
-    "axios": "^0.24.0"
   }
 }
