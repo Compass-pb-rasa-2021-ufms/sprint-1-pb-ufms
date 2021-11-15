@@ -1,0 +1,81 @@
+body {
+    width: auto;
+	padding-top: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    margin-left: 245px;
+    margin-right: 245px;
+	background-image: url('/assets/background.png');
+	background-size:cover; 
+    
+}
+.title{
+    width: 664px;
+    height: 57px;
+    font-size: 72px;
+    line-height: 47px;
+    text-align: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    
+}
+.input_text{
+    width: 200px;
+    height: 30px;   
+    border-radius: 10px;
+    text-align: center;
+    margin-right: 1px;
+    margin-top: 1px;
+	margin-bottom: 1px;
+    margin-left: 550px;
+}
+.options_input{
+    width: 120px;
+    height: 34px;
+    border-radius: 10px;
+}
+.btn{
+    width: 70px;
+    height: 34px;
+    border-radius: 10px;
+	margin-bottom: 1px;
+}
+.weather_card{
+    width: 350px;
+    height: 325px;
+    background-color: #d4dff3;
+    border-radius: 10px;
+    opacity:0.7;   
+    margin-top: 10px;
+	margin-bottom: 10px;
+    margin-left: 585px;
+}
+.city_input{
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+}
+.weather_inputs{
+    text-align: center;
+    margin-top: 1px;
+    font-size: 40px;
+}
+.temperature_input{
+    margin-top: 1px;
+}
+.weather_situation{
+    margin-top: 1px;
+    font-size: 30px;
+    color: #868B94;
+}
+.weather_stats{
+    text-align: left;
+    margin-left: 20px;
+    margin-bottom: 2px;
+    font-size: 15px;
+    color: #868B94;
+}
+.wind_speed{
+}
+.humidity{
+}
