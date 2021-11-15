@@ -1,0 +1,27 @@
+.center {
+    text-align: center;
+  }
+
+  .box-color-red { background-color: powderblue; }
+  .box-color-grey { background-color: #3C3C3C; }
+
+  .btn {
+    height: 40px;
+    text-align: center;
+    width: 400px;
+    cursor: pointer;
+
+    font-size: 1rem;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .btn:hover {
+    background-color: black;
+    color: white;
+  }
+
+
+
+
+  

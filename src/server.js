@@ -1,4 +1,4 @@
-const express = require('express'); // npm install express											// podemos usar o proprio express para fazer isso
+const express = require('express');									// podemos usar o proprio express para fazer isso
 const app = express();
 const path = require('path')
 
@@ -18,7 +18,7 @@ app.set('view engine', 'html');
 app.use(express.urlencoded({ extended: true })); 
 
 // expondo a pasta public, que serve os arquivos staticos como css/js/image
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '..', '/public')));
 
 
 // Rota que redireciona para a página de curiosidade dos numeros.
@@ -31,14 +31,16 @@ app.get('/numero', (req, res) => {
 	if (req.query.numero){
 		numbersAPI.requestNumbersAPI(req.query.numero).then(function(data) { 
 			translateAPI.requestTranslateAPI(data).then(function(translatedText){
-				res.render(path.join(__dirname+'/public/views/number.html'), {
+				// res.status(200).render(path.join(__dirname, '..', '/public/views/number.html'), {
+				res.render(path.join(__dirname, '..', '/public/views/number.html'), {
 					textoEN: data,
 					textoPT: translatedText
 				});
+			
 			})
 		}).catch(err => console.log(err));
 	} else {
-		res.render(path.join(__dirname+'/public/views/number.html'), {
+		res.render(path.join(__dirname, '..', '/public/views/number.html'), {
 			vazio: 'O campo acima está vazio, por favor, informe um número.'
 		});
 	}
@@ -47,7 +49,7 @@ app.get('/numero', (req, res) => {
 // GET
 // renderiza a pagina que contém o formulário
 app.get('/entediado', (req, res) => {
-	res.render(path.join(__dirname+'/public/views/activityform.html'));
+	res.render(path.join(__dirname, '..', '/public/views/activityform.html'));
 });
 
 // Realiza um request a API de atividades e depois um
@@ -61,7 +63,7 @@ app.get('/atividade', (req, res) => {
 		var t2 = translateAPI.requestTranslateAPI(data.type)
 		Promise.all([t1, t2]).then((values) => {
 			// verificar se a data contem dados
-			res.render(path.join(__dirname+'/public/views/activity.html'), {
+			res.render(path.join(__dirname, '..', '/public/views/activity.html'), {
 				atividade: data.activity,
 				atividadeTraduziza: values[0],
 				tipo: data.type,
@@ -77,10 +79,11 @@ app.get('/atividade', (req, res) => {
 
 // rota raiz
 app.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname+'/public/views/index.html'));
+	// sobe um diretorio
+	res.sendFile(path.join(__dirname, '..', 'public/views/index.html'));
 });
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server rodando na porta: ${port}`);
 });

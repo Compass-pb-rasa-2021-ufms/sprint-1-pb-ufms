@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title></title>
+        <link href="/css/number.css" rel="stylesheet" type="text/css">
+        <title>Numeros</title>
+        
     </head>
     <body>
         <a href="/">Home</a>
-        <p>Insira um número</p>
+        <div class="container">
+        <h1>Insira um número</h1>
         <form action="/numero" method="get">
-            Numero: <input type="number" name="numero"><br>
+            <label for="numInput">Número</label>
+            <input id="numInput" class="enlarge-full" type="number" name="numero"><br>
             <br/>
            <button type="submit">Enviar</button>   
         </form>
         <% if(locals.textoEN){ %>
-        <h1><%= textoEN %></h1>
-        <h1><%= textoPT %></h1>
+        <br>
+        <table>
+            <tr>
+                <td>[EN]</td>
+                <td><%= textoEN %></td>
+            </tr>
+            <tr>
+                <td>[PT-BR]</td>
+                <td><%= textoPT %></td>
+            </tr>
+            </table>
         <% } else if(locals.vazio) { %>  
-         <h1> <%= vazio %></h1>
+         <p> <%= vazio %></p>
        <% } %>
+        </div>
     </body>
 </html>

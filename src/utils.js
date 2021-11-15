@@ -9,6 +9,9 @@ function treatsBoredApiInput(searchParams) {
 		objectValue['participants'] = 1
 	}
 	
+	
+
+
 	// se o numero de preco minimo existir realiza a divisão por 100
 	// para que esse numero esteja de acordo com o definido pela API
 	if (objectValue['minprice']){

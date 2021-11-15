@@ -2,14 +2,74 @@
 <html>
 <head>
   <link href="/css/style.css" rel="stylesheet" type="text/css">
+
+<script>
+  var errorCount = 0
+  function validadeForm(){
+    var precoMin = document.getElementById("precoMin");
+    var precoMax = document.getElementById("precoMax");
+    var acessMin = document.getElementById("acessMin");
+    var acessMax = document.getElementById("acessMax");
+    
+
+    // verifica se o preço minimo é realmente menor que o preço máximo
+    if (precoMin) {
+      if (precoMax && precoMin.value > precoMax.value) {
+        if (errorCount > 2) {
+          precoMin.value = precoMax.value
+          return true
+        }
+        precoMin.focus();
+        errorCount++
+        alert("Atenção, o preço mínimo não pode ser maior que o preço máximo")
+        return false
+      }
+    }
+
+    // verifica se a acessibilidade mínima é realmente menor que a acessibilidade máxima
+    if (acessMin) {
+      if (acessMax && acessMin.value > acessMax.value) {
+        if (errorCount > 2) {
+          acessMin.value = 0
+          return true
+        }
+        acessMin.focus();
+        errorCount++
+        alert("Atenção, a acessibilidade mínima não pode ser maior que a acessibilidade máxima")
+        return false
+      }
+    }
+    return true
+  }
+  
+  </script>
 </head>
 <body>
   <a href="/">Home</a>
-  <h2>Selecione um tipo de atividade</h2>
-  <form action="/atividade" method="get">
+
+  <div id="divform" class="container">
+    <form action="/atividade" method="get">
+      <h2 class="ajust-padding-margin">
+        Encontre uma atividade aleatoriamente
+      </h2>
+      <input
+        class="enlarge-full btnSearch-color"
+        type="submit"
+        id="btnSearch"
+        value="estou com sorte"
+      />
+    </form>
+  </div>
+  <br />
+  <h2 class="center-text ajust-padding-margin">OU</h2>
+  <br />
+
+  <div id="divform" class="container">
+  <h2 class="ajust-padding-margin">Encontre uma atividade de acordo com seus parâmetros</h2>
+  <form action="/atividade" method="get" onsubmit="return validadeForm();">
     <!-- Tipo de um atividade -->
     <label for="tipos">Escolha um tipo de atividade:</label>
-    <select id="tipos" name="tipos">
+    <select class="enlarge-full" id="tipos" name="tipos">
       <option value="education" >Educacional</option>
       <option value="social" selected>Social</option>
       <option value="diy" >Faça você mesmo</option>
@@ -22,39 +82,52 @@
     </select>
 
 
-    <!-- participants
-    The number of people that this activity could involve
-    [0, n] -->
     <br><br>
     <label for="participantesNum">Numero de participantes envolvidos pela atividade</label>
-    <input id="participantesNum" name="participants" type="number" min='1' value="1">
+    <input class="enlarge-full" id="participantesNum" name="participants" type="number" min='1' value="1">
+    <br>
     <br>
 
-    <!-- price
-    A factor describing the cost of the event with zero being free
-    [0, 1] -->
-    <br>
-    <label for="precoMin">Custo da atividade</label>
-    <input id="precoMin" name="minprice" type="number" placeholder="Min Price">
-    <span> <= </span>
-    <input id="precoMax" name="maxprice" type="number" value="42">
-    <details>
-      <p>Mais informações sobre os detalhes.</p>
-    </details>
-
-
+    <div class="row">
+      <label for="precoMin">Custo da atividade</label>
+      <div class="column">
+        <input class="enlarge-half" id="precoMin" name="minprice" type="number" min="0" max="100" placeholder="Preço mínimo" />
+      </div>
+      <div class="columnt" >
+        <span> <= </span>
+      </div>
+      <div class="column">
+        <input class="enlarge-half" id="precoMax" name="maxprice" type="number" min="0" max="100" placeholder="Preço máximo"/>
+      </div>
+    </div>
     
 
-    <!-- accessibility   
-    A factor describing how possible an event is to do with zero being the most accessible
-    [0.0, 1.0] -->
-    <label for="acessMin">Nível de acessibilidade:</label>
-    <input id="acessMin" name="minaccessibility" type="number" step="5" min="0" max="100" >
-    <span> <= </span>
-    <input id="acessMax" name="maxaccessibility" type="number" step="5" min="0" max="100" value="100">
+    <div class="row">
+      <label for="acessMin">Nível de acessibilidade:</label>
+      <div class="column" >
+        <input class="enlarge-half" id="acessMin" name="minaccessibility" type="number"  min="0" max="100" placeholder="Acessibilidade minínima esperada" />
+      </div>
+      <div class="columnt" >
+        <span> <= </span>
+      </div>
+      <div class="column">
+        <input  class="enlarge-half" id="acessMax" name="maxaccessibility" type="number" min="0" max="100" value="100">
+      </div>
+    </div>
+    <br />
+    <p id="info">
+      *Obs: accessibility A factor describing how possible an event is to do
+      with zero being the most accessible [0.0, 1.0] price A factor
+      describing the cost of the event with zero being free [0, 1]
+    </p>
+    <br />
+
+
     <br>
     <input type="submit" value=Submit>
+  
   </form>
+  </div>
 
 
   <% if(locals.atividade){ %>

@@ -1,3 +1,6 @@
+// https://github.com/LibreTranslate/LibreTranslate
+// https://libretranslate.de/docs/
+
 const got = require('got')
 const translateApiURL =  'https://libretranslate.de/translate'
 async function requestTranslateAPI(text){
