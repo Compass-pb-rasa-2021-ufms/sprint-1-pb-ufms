@@ -1,19 +1,13 @@
 FROM node:10
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+MAINTAINER Daniel Yudi
 
-WORKDIR /home/node/app
+COPY . /var/www
 
-COPY package*.json ./
+WORKDIR /var/www
 
 RUN npm install
 
-COPY . .
+ENTRYPOINT ["npm", "start"]
 
-COPY --chown=node:node . .
-
-USER node
-
-EXPOSE 8080
-
-CMD [ "node", "index.js" ]
+EXPOSE 3000
