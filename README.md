@@ -16,7 +16,7 @@ Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Ras
 
 ## Informações
 - Criador: João Paulo de Souza Wakugawa
-- Projeto: Desenvolver um site que mostre um personagem de Harry Potter
+- Projeto: Desenvolver um site que mostre diversos personagens de Harry Potter
 
 ## Passos
 - Criar um web server => OK

@@ -1,15 +1,29 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    font-size: large;
+}
+
 div {
-    margin: auto;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 3px solid black;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 img {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
-    object-fit: cover;
+}
+
+p {
+    margin: 3px;
+}
+
+.main {
+    margin-top: 5%;
+}
+
+.text-box {
+    margin-top: 20px;
 }
