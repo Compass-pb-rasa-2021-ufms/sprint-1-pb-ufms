@@ -1,31 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="br">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BioRhyme&amp;family=Space+Mono&amp;display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <title>Buscar pokemon</title>
+  <title>pokemon</title>    
 </head>
 <body>
-  <div class="app">
-    <div class="todo-list">
-      <h1 class="title">
-        Buscar pokemon
-      </h1>
-  
-      <form class="form" action="">
-        <input class="form-input" type="text">
-        <button class="form-button"> Nova busca </button>
-      </form>
-
-      <ul class="list">
-        <li class="task">
-          <p class="content">
-            
-      
-      </ul>
-    </div>
+    <header>
+        <form  id="form">
+            <input type="text" placeholder="Procurar um pokemon" id="search" class="search">
+        </form>
+        <br>
+    </header>
+    <div id="tags"></div>
+    <div id="myNav" class="overlay">
+        <div class="overlay-content" id="overlay-content"></div>
+      </div>
+    <main id="main"></main>
+    <script src="script.js"></script>
 </body>
 </html>
