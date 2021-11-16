@@ -17,5 +17,19 @@ npm instal lite-server
 npm run server
 ```
 
+## Usando o Weather Tracker
+
+Com a aplicação rodando, siga o seguinte fluxo:
+
+* Busque pela cidade escolhida
+* Escolha a medida que deseja (Fahrenheit ou Celsius)
+* Clique no botão buscar
+
+##Desenvolvimento
+
+A aplicação foi desenvolvida com javascript para fazer a conexão e o consumo da API por meio do arquivo getWeather e app,respectivamente, HTML básico para a construção da página e CSS para aplicar estilos em cada elemento da mesma.
+Também foi utilizado o lite server, porque para emitir a solicitação em formato HTTP é necessário utilizar um servidor HTTP, não iria funcionar apenas abrir o arquivo .html e tentar emitir a solicitação, então o lite server foi utilizado.
+
+
 ## API escolhida
 [Weather Stack](https://weatherstack.com/)
