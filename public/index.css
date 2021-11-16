@@ -75,12 +75,14 @@ button {
 
 footer {
   background: #c9055c;
-  bottom: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
 }
 
 footer p {
