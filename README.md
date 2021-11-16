@@ -7,7 +7,7 @@ Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Ras
 
 ## Execução 
 
-Use o gerenciador de pacotes [npm](https://nodejs.org/en/) para executar o CookBook.
+Use o gerenciador de pacotes [npm](https://nodejs.org/en/) para executar a aplicação.
 
 1. Faça a clonagem deste repositório em sua máquina.
 2. No seu terminal de preferência, execute os comandos abaixo:
