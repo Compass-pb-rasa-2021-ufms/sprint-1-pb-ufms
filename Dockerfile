@@ -1,7 +1,5 @@
-FROM node
-COPY . /var/www
-WORKDIR /var/www
-RUN npm install
-ENTRYPOINT npm run server
-ENV PORT=3000
-EXPOSE $PORT
+FROM node:latest
+RUN mkdir /app
+ADD . /app
+WORKDIR /app
+CMD npm run server

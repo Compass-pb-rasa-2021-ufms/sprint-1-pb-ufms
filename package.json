@@ -18,7 +18,6 @@
     "url": "https://github.com/Compass-pb-rasa-2021-ufms/sprint-1-pb-ufms/issues"
   },
   "homepage": "https://github.com/Compass-pb-rasa-2021-ufms/sprint-1-pb-ufms#readme",
-  "dependencies": {},
   "devDependencies": {
     "lite-server": "^2.6.1"
   }
