@@ -6,29 +6,28 @@
 <body>
   <h1 class="title" data-form-title>Busca CEP</h1>
   <input class="form-input" type="text" data-form-input>
-  <button class="form-button" data-form-button> OK </button>
+  <button class="form-button" data-form-button id="okbutton"> OK </button>
   <ul class="list" data-list></ul>
+
   <script>
     const lista = document.querySelector('[data-list]');
-    const botaoOk = document.querySelector('[data-form-button]');
+    const botaoOk = document.getElementById('okbutton'); 
     botaoOk.addEventListener('click' , getContent);
-
+    
     async function getContent() {
-
       let inputText = document.querySelector('[data-form-input]').value;
-      document.querySelector('[data-form-input]').value = "";
-
       if(inputText.length == 8 && /^[0-9]+$/.test(inputText)){
-        const response = await fetch('http://localhost:4567/' + inputText);
+        const response = await fetch('https://buscacep-compass.herokuapp.com/' + inputText);
         const data = await response.json();
         if(data.hasOwnProperty('erro')){
           exibeMensagemErroInexistente();
         }else{
           preencheLista(data);
         }
-      } else{
+      }else{
         exibeMensagemErroInvalido();
       }
+      document.querySelector('[data-form-input]').value = "";
     }
 
     const preencheLista = (dados) => {

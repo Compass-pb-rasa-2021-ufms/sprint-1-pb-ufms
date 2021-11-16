@@ -3,7 +3,11 @@ const express = require('express');
 const app = express();
 const axios = require('axios');
 
+const port = process.env.PORT || 3000;
+
 app.use(cors());
+
+app.use(express.static('public'));
 
 app.get('/:cep', async(req, res) => {
     const { cep } = req.params;
@@ -15,4 +19,4 @@ app.get('/:cep', async(req, res) => {
     }
 });
 
-app.listen('4567');
+app.listen(port);
