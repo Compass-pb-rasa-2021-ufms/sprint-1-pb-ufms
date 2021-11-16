@@ -52,5 +52,6 @@ p {
 h1 {
     position: absolute;
     top: 0.3%;
-    font-family: 'Harry Potter', sans-serif;
+    font-size: 35px;
+    font-weight: bolder;
 }
