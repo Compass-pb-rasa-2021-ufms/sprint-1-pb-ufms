@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path');
 const axios = require('axios')
 const Articles = require('../models/articles')
 
@@ -87,7 +88,7 @@ router.post('/saved', async (req, res) =>{
     
 })
 
-router.post('/delete', async (req, res) =>{
+router.get('/delete', async (req, res) =>{
     try {
         const response = await Articles.deleteMany()
         //extraindo os dados da api
