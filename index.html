@@ -1,29 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BioRhyme&amp;family=Space+Mono&amp;display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <title>BUSCA CEP</title>
 </head>
 <body>
-  <div class="app">
-    <div class="todo-list">
-      <h1 class="title" data-form-title>
-        BUSCA CEP
-      </h1>
+  <h1 class="title" data-form-title>Busca CEP</h1>
+  <input class="form-input" type="text" data-form-input>
+  <button class="form-button" data-form-button> OK </button>
+  <ul class="list" data-list></ul>
+  <script>
+    const lista = document.querySelector('[data-list]');
+    const botaoOk = document.querySelector('[data-form-button]');
+    botaoOk.addEventListener('click' , getContent);
 
-      <form class="form" action="">
-        <input class="form-input" type="text" data-form-input>
-        <button class="form-button" data-form-button> OK </button>
-      </form>
+    async function getContent() {
 
-      <ul class="list" data-list>
-        
-      </ul>
-    </div>
-    <script type="module" src="main.js"></script>
+      let inputText = document.querySelector('[data-form-input]').value;
+      document.querySelector('[data-form-input]').value = "";
+
+      if(inputText.length == 8 && /^[0-9]+$/.test(inputText)){
+        const response = await fetch('http://localhost:4567/' + inputText);
+        const data = await response.json();
+        if(data.hasOwnProperty('erro')){
+          exibeMensagemErroInexistente();
+        }else{
+          preencheLista(data);
+        }
+      } else{
+        exibeMensagemErroInvalido();
+      }
+    }
+
+    const preencheLista = (dados) => {
+      const endereco = [];
+      const lista = document.querySelector('[data-list]');
+      insereDadosArray(dados, endereco);
+      zeraLista(lista);
+      insereDadosList(lista, endereco);
+    }
+
+    const insereDadosList = (lista, endereco) => {
+      for(let i = 0; i < 9; i++){
+        const tarefa = document.createElement('li');
+        tarefa.classList.add('task');
+        const conteudo = `<p class="content">${endereco[i]}</p>`;
+        tarefa.innerHTML = conteudo;
+        lista.appendChild(tarefa);
+      }
+    }
+
+    const insereDadosArray  = (dados, endereco) => {
+      endereco.push("CEP: " + dados.cep);
+      endereco.push("Logradouro: " + dados.logradouro);
+      endereco.push("Complemento: " + dados.complemento);
+      endereco.push("Bairro: " + dados.bairro);
+      endereco.push("Localidade: " + dados.localidade);
+      endereco.push("UF: " + dados.uf);
+      endereco.push("IBGE: " + dados.ibge);
+      endereco.push("GIA: " + dados.gia);
+      endereco.push("DDD: " + dados.ddd);
+    }
+
+    const zeraLista = (lista) =>{
+      for(let i = 0; i < 9; i++){
+        if(lista.lastChild!= null){
+            lista.lastChild.remove();
+        }
+      }
+    }
+
+    const exibeMensagemErroInvalido = () => {
+      const lista = document.querySelector('[data-list]')
+      const tarefa = document.createElement('li');
+      const conteudo = `<p class="content">CEP INVALIDO</p>`;
+      zeraLista(lista);
+      tarefa.innerHTML = conteudo;
+      lista.appendChild(tarefa);
+    }
+
+    const exibeMensagemErroInexistente = () => {
+      const lista = document.querySelector('[data-list]')
+      const tarefa = document.createElement('li');
+      const conteudo = `<p class="content">CEP INEXISTENTE</p>`;
+      zeraLista(lista);
+      tarefa.innerHTML = conteudo;
+      lista.appendChild(tarefa);
+    }
+
+  </script>
 </body>
-</html>

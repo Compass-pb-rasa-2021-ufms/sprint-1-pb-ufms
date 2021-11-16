@@ -1,5 +1,26 @@
 {
   "dependencies": {
-    "cors": "^2.8.5"
-  }
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  },
+  "name": "sprint-1-pb-ufms",
+  "description": "-# sprint-1-pb-ufms\r # Avaliação Sprint 1 - Programa de Bolsas Compass.uol e UFMS\r Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Rasa.",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Compass-pb-rasa-2021-ufms/sprint-1-pb-ufms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Compass-pb-rasa-2021-ufms/sprint-1-pb-ufms/issues"
+  },
+  "homepage": "https://github.com/Compass-pb-rasa-2021-ufms/sprint-1-pb-ufms#readme"
 }
