@@ -16,5 +16,6 @@ npm install
 npm instal lite-server  
 npm run server
 ```
+
 ## API escolhida
-[Weather Stack] (https://weatherstack.com/)
+[Weather Stack](https://weatherstack.com/)
