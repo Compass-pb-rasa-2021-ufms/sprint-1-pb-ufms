@@ -323,7 +323,7 @@
                     containercopy.classList.add('container_copy')
 
                     const date = document.createElement('h3')
-                    date.innerText = String(article.published_at)
+                    date.innerText = new Date(article.published_at)
 
                     const title = document.createElement('h1')
                     title.innerText = String(article.title)
