@@ -10,7 +10,7 @@
 - ### Acesso local 
     - clone o repositório com `git clone`
     - no diretório do projeto clonado, execute `npm install`
-    - Acesse locamente em [http://localhost:3000]
+    - Acesse locamente em [http://localhost:3000](http://localhost:3000)
 
 - ### Acesso local com docker
     - no diretório do projeto clonado execute `npm install`
