@@ -19,7 +19,7 @@
     - http://localhost:8080
 
 - ### Acesso a apĺicação
-    - Acesse o link [https://glacial-thicket-96440.herokuapp.com/](aqui)
+    - [Acesse a página aqui](https://glacial-thicket-96440.herokuapp.com/)
 
 ## Utilização
 - Na página inicial pesquise por `categoria` ou `palavra-chave`
