@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 
 //estabelecendo a conexao
-mongoose.connect('mongodb+srv://compassUser:compass@cluster0.fknmd.mongodb.net/compassArticle?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_KEY)
 
 
 mongoose.Promise = global.Promise
 
+
+//construindo Model
 const articlesSchema = new mongoose.Schema({
     author:{
         type:String
