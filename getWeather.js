@@ -5,7 +5,7 @@ document.getElementById("buscar").addEventListener('click',  async () => {
   const key = '6b2e9988c3c2678e63f45e20c861df5d';
   const temp = measure === 'm' ? 'C' : 'F';
 
-  const response = await fetch("http://api.weatherstack.com/current?access_key="+key+"&query="+location+"&units="+measure)
+  const response = await fetch("https://api.weatherstack.com/current?access_key="+key+"&query="+location+"&units="+measure)
   const data = await response.json()
 
   document.getElementById("image").src=data.current.weather_icons[0];
