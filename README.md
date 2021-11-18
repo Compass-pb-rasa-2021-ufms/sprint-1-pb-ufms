@@ -3,7 +3,7 @@ Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Ras
 
 ## Link da aplicação
 
-[Weather Tracker](https://tracker-compass.herokuapp.com/)
+[Weather Tracker](https://weather-tracker-compass.herokuapp.com/)
 
 ## Execução 
 
