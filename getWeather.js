@@ -27,11 +27,11 @@ btn.addEventListener('click',function(){
 
         document.getElementById("image").src='https://openweathermap.org/img/w/'+data.weather[0].icon+'.png';
         city_inputText.innerHTML = cityValue;
-        temperature_input.innerHTML = temperatureValue +"ºC";
+        temperature_input.innerHTML = temperatureValue +"°C";
         weather_situation.innerHTML = weatherSituationValue.toUpperCase();
-        min_temp.innerHTML = "Temperatura Minima: " + minTemperatureValue + "ºC";
-        max_temp.innerHTML = "Temperatura Maxima: " + maxTemperatureValue + "ºC";
-        feels_like.innerHTML = "Sensação Térmica: " + feelsLikeValue +"ºC";
+        min_temp.innerHTML = "Temperatura Minima: " + minTemperatureValue + "°C";
+        max_temp.innerHTML = "Temperatura Maxima: " + maxTemperatureValue + "°C";
+        feels_like.innerHTML = "Sensação Térmica: " + feelsLikeValue +"°C";
         wind_speed.innerHTML = "Vento: " + windSpeedValue +"km/h";
         humidity.innerHTML = "Umidade: " + humidityValue +"%";
     })
