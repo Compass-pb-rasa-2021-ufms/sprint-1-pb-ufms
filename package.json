@@ -4,6 +4,7 @@
   "description": "Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Rasa.",
   "main": "app.js",
   "scripts": {
+    "start":"node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "lite-server"
   },
@@ -22,8 +23,6 @@
     "lite-server": "^2.6.1"
   },
   "dependencies": {
-    "axios": "^0.24.0",
-    "express": "^4.17.1",
-    "heroku": "^7.59.1"
-  }
+    "express": "^4.17.1"
+  },
 }

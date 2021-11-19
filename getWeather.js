@@ -1,19 +1,39 @@
+const city = document.querySelector('.input_text');
+const btn = document.querySelector('.btn');
+const key ="37bcf1a1835ab035f7ab707f913edd65";
 
-document.getElementById("buscar").addEventListener('click',  async () => {
-  const location = document.getElementById("search").value;
-  const measure = document.getElementById("units").value;   
-  const key = '6b2e9988c3c2678e63f45e20c861df5d';
-  const temp = measure === 'm' ? 'C' : 'F';
+const city_input = document.querySelector('.city_inputText');
+const temperature_input = document.querySelector('.temperature_input');
+const minTemperature_input = document.querySelector('.min_temp');
+const maxTemperature_input = document.querySelector('.max_temp');
+const weather_situation = document.querySelector('.weather_situation');
+const image = document.querySelector('image');
+const feels_like = document.querySelector('.feels_like');
+const wind_speed = document.querySelector('.wind_speed');
+const humidity = document.querySelector('.humidity');
 
-  const response = await fetch("https://api.weatherstack.com/current?access_key="+key+"&query="+location+"&units="+measure)
-  const data = await response.json()
+btn.addEventListener('click',function(){
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+city.value+'&units=metric&appid='+key+'&lang=pt_br')
+    .then(response => response.json())
+    .then(data =>{
+        const cityValue = data['name'];
+        const temperatureValue = data['main']['temp'];
+        const weatherSituationValue = data['weather'][0]['description'];
+        const minTemperatureValue = data['main']['temp_min'];
+        const maxTemperatureValue = data['main']['temp_max'];
+        const feelsLikeValue = data['main']['feels_like'];
+        const windSpeedValue = data['wind']['speed'];
+        const humidityValue = data['main']['humidity'];
 
-  document.getElementById("image").src=data.current.weather_icons[0];
-  document.getElementById("city_inputText").innerHTML = location.toUpperCase();
-  document.getElementById("temperature_input").innerHTML = data.current.temperature+"º"+ temp;
-  document.getElementById("weather_situation").innerHTML = data.current.weather_descriptions[0];
-  document.getElementById("feels_like").innerHTML = "Sensação Térmica: " + data.current.feelslike+"º"+ temp;
-  document.getElementById("wind_speed").innerHTML = "Vento: "+ data.current.wind_speed+"km/h";
-  document.getElementById("humidity").innerHTML = "Umidade: " + data.current.humidity+"%";
-  
+        document.getElementById("image").src='https://openweathermap.org/img/w/'+data.weather[0].icon+'.png';
+        city_inputText.innerHTML = cityValue;
+        temperature_input.innerHTML = temperatureValue +"ºC";
+        weather_situation.innerHTML = weatherSituationValue.toUpperCase();
+        min_temp.innerHTML = "Temperatura Minima: " + minTemperatureValue + "ºC";
+        max_temp.innerHTML = "Temperatura Maxima: " + maxTemperatureValue + "ºC";
+        feels_like.innerHTML = "Sensação Térmica: " + feelsLikeValue +"ºC";
+        wind_speed.innerHTML = "Vento: " + windSpeedValue +"km/h";
+        humidity.innerHTML = "Umidade: " + humidityValue +"%";
+    })
+.catch(err => alert("Insira uma cidade válida!"))
 })
