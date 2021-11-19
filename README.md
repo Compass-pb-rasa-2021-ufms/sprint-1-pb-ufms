@@ -31,4 +31,4 @@ Também foi utilizado o lite server, porque para emitir a solicitação em forma
 
 
 ## API escolhida
-[Weather Stack](https://openweathermap.org/current)
+[Current Weather Data](https://openweathermap.org/current)
