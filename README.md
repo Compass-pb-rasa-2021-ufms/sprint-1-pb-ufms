@@ -3,7 +3,7 @@ Primeira sprint do programa de bolsas Compass.uol para formação em chatbot Ras
 
 ## Link da aplicação
 
-[Weather Tracker](https://weather-tracker-compass.herokuapp.com/)
+[Weather Tracker](https://sprint-api-compass.herokuapp.com/)
 
 ## Execução 
 
@@ -22,7 +22,6 @@ npm run server
 Com a aplicação rodando, siga o seguinte fluxo:
 
 * Busque pela cidade escolhida
-* Escolha a medida que deseja (Fahrenheit ou Celsius)
 * Clique no botão buscar
 
 ## Desenvolvimento
@@ -32,4 +31,4 @@ Também foi utilizado o lite server, porque para emitir a solicitação em forma
 
 
 ## API escolhida
-[Weather Stack](https://weatherstack.com/)
+[Current Weather Data](https://openweathermap.org/current)
