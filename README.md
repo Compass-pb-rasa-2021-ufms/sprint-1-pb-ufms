@@ -13,10 +13,28 @@
 - API utilizada: http://hp-api.herokuapp.com/api/characters
 - Hospedagem: Heroku & Github
 - Front-end: Html & CSS
-- Back-end: NodeJS & Docker
+- Back-end: NodeJS  
 
-## Pontos a melhorar
-Loop infinito => OK
-Adicionar interatividade => OK
-Melhorar o design => OK
-Detalhar melhor a documentação
+## Acesso local
+### Localhost: 3000
+```
+$ git clone
+$ npm install (Deve ser no diretório especificado)
+```
+
+## Upando no Heroku
+```
+$ heroku login
+$ heroku container:login
+$ heroku create  (Anote o nome do site criado)
+$ docker build -t registry.heroku.com/'nome-do-app-criado'/web . (Não esqueça de especificar o diretório)
+$ docker push registry.heroku.com/'nome-do-app-criado'/web
+$ heroku container:release web -a 'nome-do-app-criado'
+$ heroku open -a 'nome-do-app-criado'
+```
+
+## Buildando a imagem
+```
+$ docker build -t 'nome-da-img' . 
+$ docker run -it -p 'porta':3000 'nome-da-img'
+```
