@@ -38,5 +38,5 @@ Segue uma possível entrada:
 
 E seu respectivo retorno:
 
-![Result](https://prnt.sc/20wxy85)
+![Result](./public/result.png)
 
